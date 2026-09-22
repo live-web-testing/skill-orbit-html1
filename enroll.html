@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enroll Your Child - Skill Orbit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .form-box {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      padding: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      border: 1px solid #f6e8de;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1.5px solid #e2e8f0;
+      font-size: 14.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--primary-orange);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Strip -->
+  <div class="top-bar">
+    <div class="container">
+      <div>
+        <a href="tel:+919016318754"><i class="fa fa-phone"></i> +91 9016318754</a>
+        <a href="mailto:connect@skillorbit.in"><i class="fa fa-envelope"></i> connect@skillorbit.in</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:15px;">
+        <a href="franchise.html" class="btn btn-teal" style="padding: 4px 14px; font-size: 11px;">Get Franchise</a>
+        <span class="top-bar-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="header-nav">
+    <div class="container">
+      <a href="index.html" class="logo-area">
+        <div class="logo-main"><i class="fa-solid fa-graduation-cap" style="color:var(--primary-teal);"></i> SKILL <span>ORBIT</span></div>
+        <div class="logo-sub">एक कदम कौशल की ओर</div>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="">Home</a></li><li><a href="about.html" class="">About Us</a></li><li class="has-dropdown">
+              <a href="#" class="">Programs <i class="fa fa-chevron-down" style="font-size:10px; margin-left:3px;"></i></a>
+              <ul class="dropdown-menu"><li><a href="program-abacus.html" class="">Abacus Program</a></li><li><a href="program-vedic-maths.html" class="">Vedic Maths Program</a></li><li><a href="program-phonics.html" class="">Phonics Program</a></li><li><a href="program-grammar.html" class="">Fun Grammar Program</a></li></ul></li><li><a href="franchise.html" class="">Our Franchise</a></li><li><a href="contact.html" class="">Contact Us</a></li><li><a href="enroll.html" class="btn btn-orange" style="color:#fff;">Enroll Now</a></li>
+      </ul>
+      <div class="mobile-toggle" onclick="document.getElementById('navMenu').classList.toggle('show')">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Hero Banner -->
+  <section style="padding: 50px 0 30px; background: #fffaf5;">
+    <div class="container" style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center;">
+      <div>
+        <h1 style="font-size: 48px; color: var(--primary-orange); line-height: 1.2; margin-bottom: 20px;">Enroll<br>Your<br>Child</h1>
+        <p style="color: var(--light-text); font-size: 15px; margin-bottom: 25px; line-height: 1.7;">
+          Thank you for your interest in Skillorbit Edunext! We look forward to helping you explore opportunities as a Homentrepreneur and join our mission of empowering homes through learning.
+        </p>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&auto=format&fit=crop&q=80" alt="Enroll Your Child" class="rounded-banner-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Enrollment Form Section -->
+  <section style="padding: 50px 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 35px;">
+        <h2 style="font-size: 34px; color: var(--primary-orange); font-weight: 700;">Enrollment Form</h2>
+        <p style="color: var(--light-text); font-size: 14.5px;">Please fill in the enrollment form below and follow further instructions.</p>
+        <div style="width: 60px; height: 3px; background: var(--primary-teal); margin: 15px auto 0; border-radius: 2px;"></div>
+      </div>
+
+      <div class="form-box">
+        <form action="#" method="POST" onsubmit="alert('Application submitted successfully!'); return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Child's Full Name *</label>
+              <input type="text" class="form-control" placeholder="Enter child's full name" required>
+            </div>
+            <div class="form-group">
+              <label>Child's Date of Birth / Age *</label>
+              <input type="text" class="form-control" placeholder="e.g. 7 years (DD/MM/YYYY)" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Parent / Guardian Name *</label>
+              <input type="text" class="form-control" placeholder="Enter parent's full name" required>
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp Number *</label>
+              <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" class="form-control" placeholder="youremail@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>Select Desired Program *</label>
+              <select class="form-control" required>
+                <option value="">-- Choose Program --</option>
+                <option value="abacus">Skill Orbit Abacus Program</option>
+                <option value="vedic">Skill Orbit Vedic Maths Program</option>
+                <option value="phonics">Skill Orbit Phonics Program</option>
+                <option value="grammar">Skill Orbit Fun Grammar Program</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>City & Address</label>
+            <input type="text" class="form-control" placeholder="e.g. Satellite, Ahmedabad">
+          </div>
+
+          <div class="form-group">
+            <label>Any Specific Questions or Learning Goals?</label>
+            <textarea class="form-control" rows="3" placeholder="Tell us about your child's learning interests..."></textarea>
+          </div>
+
+          <div style="text-align: center; margin-top: 30px;">
+            <button type="submit" class="btn btn-orange" style="padding: 14px 45px; font-size: 16px;">Submit Enrollment</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Quick Contact Strip -->
+      <div style="background: #fdfaf6; border: 1px dashed var(--primary-teal); border-radius: 20px; padding: 25px 35px; display: flex; justify-content: space-between; align-items: center; margin-top: 50px; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <h3 style="color: #24292e; font-size: 20px; margin-bottom: 5px;">Have questions?</h3>
+          <p style="color: var(--light-text); font-size: 14px;">Contact us to get more information on the application process.</p>
+        </div>
+        <a href="contact.html" class="btn btn-orange">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="program-abacus.html">Abacus Program</a></li>
+          <li><a href="program-vedic-maths.html">Vedic Maths Program</a></li>
+          <li><a href="program-phonics.html">Phonics Program</a></li>
+          <li><a href="program-grammar.html">Fun Grammar Program</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-center">
+        <div class="footer-logo">SKILL ORBIT</div>
+        <div class="footer-tagline">एक कदम कौशल की ओर</div>
+      </div>
+
+      <div class="footer-col" style="justify-self: end;">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li><i class="fa fa-location-dot"></i> Ahmedabad, Gujarat</li>
+          <li><i class="fa fa-envelope"></i> connect@skillorbit.in</li>
+          <li><i class="fa fa-phone"></i> +91 9016318754</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 SKILL ORBIT. All Rights Reserved. Empowering Young Minds.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
