@@ -138,3 +138,72 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.site-reveal').forEach(function (el) { el.classList.add('is-visible'); });
   }
 });
+
+
+/* Skill Orbit hero content slider */
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".hero-slider");
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll(".hero-slide"));
+  const dots = Array.from(slider.querySelectorAll(".hero-dot"));
+  const prev = slider.querySelector(".hero-prev");
+  const next = slider.querySelector(".hero-next");
+  if (!slides.length) return;
+
+  let current = 0;
+  let timer;
+  const delay = 5000;
+
+  function showHero(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle("is-active", i === current));
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+  }
+
+  function startHeroAuto() {
+    clearInterval(timer);
+    timer = setInterval(() => showHero(current + 1), delay);
+  }
+
+  function resetHeroAuto() {
+    startHeroAuto();
+  }
+
+  showHero(0);
+
+  if (next) next.addEventListener("click", function () {
+    showHero(current + 1);
+    resetHeroAuto();
+  });
+
+  if (prev) prev.addEventListener("click", function () {
+    showHero(current - 1);
+    resetHeroAuto();
+  });
+
+  dots.forEach((dot, i) => dot.addEventListener("click", function () {
+    showHero(i);
+    resetHeroAuto();
+  }));
+
+  slider.addEventListener("mouseenter", () => clearInterval(timer));
+  slider.addEventListener("mouseleave", startHeroAuto);
+
+  let startX = 0;
+  slider.addEventListener("touchstart", e => {
+    startX = e.changedTouches[0].clientX;
+    clearInterval(timer);
+  }, {passive:true});
+
+  slider.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    const distance = endX - startX;
+    if (Math.abs(distance) > 45) {
+      showHero(distance < 0 ? current + 1 : current - 1);
+    }
+    startHeroAuto();
+  }, {passive:true});
+
+  startHeroAuto();
+});
