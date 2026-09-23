@@ -10,6 +10,18 @@
 </head>
 <body>
 
+<section class="so-home-slider" aria-label="Skill Orbit highlights">
+  <div class="so-slider-track">
+    <div class="so-slide so-slide-gradient-1"><div class="so-slide-overlay"></div><div class="so-slide-content"><span class="so-slide-tag">Skill Orbit</span><h1>Learn. Grow. Achieve.</h1><p>Practical learning designed to help you move forward.</p><a class="so-slide-btn" href="#programs">Explore Programs <span>→</span></a></div></div><div class="so-slide so-slide-gradient-2"><div class="so-slide-overlay"></div><div class="so-slide-content"><span class="so-slide-tag">Skill Development</span><h1>Build Your Skills With Confidence.</h1><p>Explore programs, develop skills and create new opportunities.</p><a class="so-slide-btn" href="#programs">Explore Programs <span>→</span></a></div></div><div class="so-slide so-slide-gradient-3"><div class="so-slide-overlay"></div><div class="so-slide-content"><span class="so-slide-tag">Start Today</span><h1>Your Journey Starts Here.</h1><p>Discover the right program and take the next step.</p><a class="so-slide-btn" href="#programs">Explore Programs <span>→</span></a></div></div>
+  </div>
+  <button class="so-slider-arrow so-prev" type="button" aria-label="Previous slide">‹</button>
+  <button class="so-slider-arrow so-next" type="button" aria-label="Next slide">›</button>
+  <div class="so-slider-dots" aria-label="Slide navigation">
+    <button type="button" class="so-dot active" data-slide="0" aria-label="Go to slide 1"></button><button type="button" class="so-dot" data-slide="1" aria-label="Go to slide 2"></button><button type="button" class="so-dot" data-slide="2" aria-label="Go to slide 3"></button>
+  </div>
+</section>
+
+
   <!-- Top Strip -->
   <div class="top-bar">
     <div class="container">
@@ -259,5 +271,62 @@
   </footer>
 
 <script src="js/site.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.querySelector('.so-home-slider');
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll('.so-slide'));
+  const dots = Array.from(slider.querySelectorAll('.so-dot'));
+  const prev = slider.querySelector('.so-prev');
+  const next = slider.querySelector('.so-next');
+  let current = 0;
+  let timer = null;
+  const delay = 5000;
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(() => showSlide(current + 1), delay);
+  }
+
+  function restartAuto() {
+    startAuto();
+  }
+
+  if (slides.length) showSlide(0);
+
+  if (next) next.addEventListener('click', function () {
+    showSlide(current + 1);
+    restartAuto();
+  });
+
+  if (prev) prev.addEventListener('click', function () {
+    showSlide(current - 1);
+    restartAuto();
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', function () {
+      showSlide(i);
+      restartAuto();
+    });
+  });
+
+  slider.addEventListener('mouseenter', () => clearInterval(timer));
+  slider.addEventListener('mouseleave', startAuto);
+  slider.addEventListener('touchstart', () => clearInterval(timer), {passive:true});
+  slider.addEventListener('touchend', startAuto, {passive:true});
+
+  startAuto();
+});
+</script>
+
 </body>
 </html>
